@@ -10,7 +10,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 # react-redux-cordova-crud-app
 Build multi platform API crud app with React Redux + Apache Cordova <br/>
-
+PUBLIC_API = [https://rooms-production-api.herokuapp.com/rooms](https://rooms-production-api.herokuapp.com/rooms)
 
 ## Available Scripts
 
