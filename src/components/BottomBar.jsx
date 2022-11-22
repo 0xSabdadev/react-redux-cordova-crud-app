@@ -1,14 +1,40 @@
 import React from 'react'
 import {Nav, Navbar, NavDropdown, Container} from 'react-bootstrap'
 import {Link} from 'react-router-dom'
+import {useDispatch, useSelector} from 'react-redux'
 
 const BottomBar = () => {
+    const state = useSelector(state => state)
+    const dispatch = useDispatch()
+    const handleHomeClick = () => {
+        dispatch({
+            type: 'home',
+        })
+    }
+    const handleAddClick = () => {
+        dispatch({
+            type: 'add',
+        })
+    }
+    const handleTeamClick = () => {
+        dispatch({
+            type: 'team',
+        })
+    }
     return (
         <Navbar fixed='bottom' style={{background: '#FEFEFF'}} variant='light'>
             <Container>
                 <ul className='navbar-nav nav-justified w-100'>
                     <li className='nav-item'>
-                        <Link to='/' className='nav-link text-center '>
+                        <Link
+                            to='/'
+                            className='nav-link text-center'
+                            onClick={handleHomeClick}
+                            style={
+                                state.css && (state.isActive == 1 || state.isActive == null)
+                                    ? state.css
+                                    : {}
+                            }>
                             <svg
                                 width='1.5em'
                                 height='1.5em'
@@ -31,8 +57,9 @@ const BottomBar = () => {
                     <li className='nav-item'>
                         <Link
                             to='/add'
-                            className='nav-link text-center fw-bold'
-                            style={{color: '#696CFF'}}>
+                            className='nav-link text-center'
+                            onClick={handleAddClick}
+                            style={state.css && state.isActive == 2 ? state.css : {}}>
                             <svg
                                 xmlns='http://www.w3.org/2000/svg'
                                 width='1.5em'
@@ -47,7 +74,11 @@ const BottomBar = () => {
                         </Link>
                     </li>
                     <li className='nav-item'>
-                        <Link to='/team' className='nav-link text-center '>
+                        <Link
+                            to='/team'
+                            className='nav-link text-center '
+                            onClick={handleTeamClick}
+                            style={state.css && state.isActive == 3 ? state.css : {}}>
                             <svg
                                 width='1.5em'
                                 height='1.5em'

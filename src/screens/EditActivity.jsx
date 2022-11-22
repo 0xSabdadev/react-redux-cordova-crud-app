@@ -28,7 +28,7 @@ const EditActivity = props => {
     useEffect(() => {
         fetchDatas()
     }, [])
-    if (!roomName || !roomCapacity || !roomURI) {
+    if (!roomState) {
         return (
             <Container style={{paddingTop: '280px'}}>
                 <Row className='text-center '>
