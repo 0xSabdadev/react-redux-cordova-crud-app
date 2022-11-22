@@ -6,11 +6,13 @@ import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import HomeActivity from './screens/HomeActivity'
 import AddActivity from './screens/AddActivity'
 import EditActivity from './screens/EditActivity'
+import NavBar2 from './components/NavBar2'
 
 function App() {
     return (
         <div>
             <BrowserRouter>
+                <NavBar2 />
                 <NavBar />
                 <Routes>
                     <Route path='/' element={<HomeActivity />} />

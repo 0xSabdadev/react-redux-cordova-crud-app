@@ -1,18 +1,45 @@
 import React from 'react'
-import {Card, Button, Col} from 'react-bootstrap'
+import {Card, Button, Col, Row} from 'react-bootstrap'
+import {Link, useNavigate} from 'react-router-dom'
+import services from '../services'
 
-const DataItem = () => {
+const DataItem = ({id, name, capacity, thumbnailUrl}) => {
+    const navigate = useNavigate()
+    const handleDelete = async () => {
+        try {
+            await services.deleteDatas(id)
+            alert('Photo Deleted')
+            window.location.reload()
+        } catch (err) {
+            console.log(err)
+            alert('Delete Failed')
+        }
+    }
     return (
         <Col md='auto' lg='4'>
-            <Card>
-                <Card.Img variant='top' src='holder.js/100px180' />
+            <Card className='mb-4'>
+                <Card.Img
+                    variant='top'
+                    src={thumbnailUrl}
+                    style={{width: '100%', height: '9rem'}}
+                />
                 <Card.Body>
-                    <Card.Title>Card Title</Card.Title>
-                    <Card.Text>
-                        Some quick example text to build on the card title and make up the bulk of
-                        the card's content.
-                    </Card.Text>
-                    <Button variant='primary'>Go somewhere</Button>
+                    <Row>
+                        <Col>
+                            <Card.Title>{name}</Card.Title>
+                            <Card.Text>Capacity : {capacity}</Card.Text>
+                        </Col>
+                        <Col className='text-end'>
+                            <Link to={{pathname: `/edit/${id}`}} state={{id_item: id}}>
+                                <Button variant='primary' className='me-2'>
+                                    Edit
+                                </Button>
+                            </Link>
+                            <Button variant='danger' onClick={handleDelete}>
+                                Delete
+                            </Button>
+                        </Col>
+                    </Row>
                 </Card.Body>
             </Card>
         </Col>

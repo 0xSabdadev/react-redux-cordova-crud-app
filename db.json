@@ -1,0 +1,29 @@
+{
+  "room_datas": [
+    {
+      "id": 2,
+      "roomsId": 1,
+      "name": "IF-002",
+      "capacity": "43",
+      "thumbnailUrl": "https://via.placeholder.com/150/771796"
+    },
+    {
+      "roomsId": 1,
+      "id": 4,
+      "name": "IF-004",
+      "capacity": "34",
+      "url": "https://via.placeholder.com/600/d32776",
+      "thumbnailUrl": "https://via.placeholder.com/150/d32776"
+    },
+    {
+      "roomsId": 1,
+      "name": "TESTI1",
+      "capacity": "23",
+      "thumbnailUrl": "https://placeimg.com/640/480/tech",
+      "id": 5
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
