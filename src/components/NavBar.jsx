@@ -1,40 +1,29 @@
-import React, {useState} from 'react'
-import {
-    Collapse,
-    Navbar,
-    NavbarToggler,
-    NavbarBrand,
-    Nav,
-    NavItem,
-    NavLink,
-    NavbarText,
-} from 'reactstrap'
+import React from 'react'
+import {Nav, Navbar, NavDropdown, Container} from 'react-bootstrap'
+import {Link} from 'react-router-dom'
 
-const NavBar = args => {
-    const [isOpen, setIsOpen] = useState(false)
-
-    const toggle = () => setIsOpen(!isOpen)
-
+const NavBar = () => {
     return (
-        <div>
-            <Navbar {...args} color='dark' dark expand='md'>
-                <NavbarBrand href='/' className='ps-lg-5'>
-                    reactcrud
-                </NavbarBrand>
-                <NavbarToggler onClick={toggle} />
-                <Collapse isOpen={isOpen} navbar>
-                    {/* <Nav className='me-auto' navbar>
-                        <NavItem>
-                            <NavLink href='/components/'>Home</NavLink>
-                        </NavItem>
-                        <NavItem>
-                            <NavLink href='https://github.com/reactstrap/reactstrap'>About</NavLink>
-                        </NavItem>
+        <Navbar collapseOnSelect expand='lg' bg='dark' variant='dark'>
+            <Container>
+                <Link to='/' className='nav-link'>
+                    <Navbar.Brand>React-Bootstrap</Navbar.Brand>
+                </Link>
+                <Navbar.Toggle aria-controls='responsive-navbar-nav' />
+                <Navbar.Collapse id='responsive-navbar-nav'>
+                    <Nav className='me-auto'>
+                        <Link to='/add' className='nav-link'>
+                            Tambah Data
+                        </Link>
                     </Nav>
-                    <NavbarText>Admin</NavbarText> */}
-                </Collapse>
-            </Navbar>
-        </div>
+                    <Nav>
+                        <Link eventKey={2} to='/add' className='nav-link'>
+                            Kel6PBP
+                        </Link>
+                    </Nav>
+                </Navbar.Collapse>
+            </Container>
+        </Navbar>
     )
 }
 
